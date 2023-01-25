@@ -32,6 +32,11 @@ Create an items table:
 `CREATE TABLE items(id SERIAL, name TEXT, revenue INT, course TEXT);`
 
 From above: What does `SERIAL` do?
+>the keyword SERIAL is used to define the data type of the id column. SERIAL is a shortcut for BIGSERIAL, an auto-incrementing 64-bit integer that is commonly used as a primary key for tables. When a new row is inserted into the table, the database will automatically assign a unique value to the id column, starting at 1 and incrementing by 1 for each subsequent row.
+>
+>SERIAL is a convenient way of creating a primary key column with an auto-incrementing value, without having to explicitly create a separate sequence generator and trigger.
+>
+>It's important to note that SERIAL is specific to the PostgreSQL database management system, and other relational database management systems may have a different syntax for defining auto-incrementing columns.
 
 Run `SELECT * FROM items;` to make sure it was successful.
 
@@ -55,11 +60,11 @@ VALUES ('lobster mac n cheese', 1200, 'side'),
 
 ##### Write queries for the following:
 
-1. What's the total revenue for all items?
-1. What's the average revenue for all items?
-1. What's the minimum revenue for all items?
-1. What's the maximum revenue for all items?
-1. What the count for items with a name?
+1. What's the total revenue for all items? - 3800
+1. What's the average revenue for all items? - 950.00
+1. What's the minimum revenue for all items? - 500
+1. What's the maximum revenue for all items? - 1200
+1. What the count for items with a name? - 4
 
 Let's create an item that has all NULL values:
 `INSERT into items (name, revenue, course) VALUES (NULL, NULL, NULL);`
