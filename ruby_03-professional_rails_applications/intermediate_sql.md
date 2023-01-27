@@ -71,6 +71,8 @@ Let's create an item that has all NULL values:
 
 Typically you `count` records in a table by counting on the `id` column, like `SELECT COUNT(id) FROM items;`. However, it's not necessary for a table to have an `id` column. What else can you pass to `count` and still get `5` as your result?
 
+`select count(*) from items;`
+
 #### Building on Aggregate Functions
 
 Now, combine multiple functions by returning both the minimum and maximum value from the revenue column:
@@ -82,10 +84,10 @@ How can we get the revenue based on the course?
 
 ##### Write queries for the following:
 
-1. Return all `main` courses. Hint: What ActiveRecord method would you use to get this?
-1. Return only the names of the `main` courses.
-1. Return the min and max value for the `main` courses.
-1. What's the total revenue for all `main` courses?
+1. Return all `main` courses. Hint: What ActiveRecord method would you use to get this? - `select * from items where course = 'main';`
+1. Return only the names of the `main` courses. - `select name from items where course = 'main';`
+1. Return the min and max value for the `main` courses. - `SELECT max(revenue), min(revenue) from items where course = 'main';`
+1. What's the total revenue for all `main` courses? - `select sum(revenue) from items where course = 'main';`
 
 #### INNER JOINS
 
