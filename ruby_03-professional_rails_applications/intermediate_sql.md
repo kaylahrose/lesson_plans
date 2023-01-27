@@ -171,8 +171,12 @@ id |         name         | revenue | season_id | id |  name
 
 This is useful, but we probably don't need all of the information from both tables.
 
-* Can you get it to display only the name for the item and the name for the season?
-* Having two columns with the same name is confusing. Can you customize each heading using `AS`?
+* Can you get it to display only the name for the item and the name for the season? - `SELECT items.name, seasons.name FROM items
+INNER JOIN seasons
+ON items.season_id = seasons.id;`
+* Having two columns with the same name is confusing. Can you customize each heading using `AS`? - `SELECT items.name as items, seasons.name as seasons FROM items
+INNER JOIN seasons
+ON items.season_id = seasons.id;`
 
 It should look like this:
 
