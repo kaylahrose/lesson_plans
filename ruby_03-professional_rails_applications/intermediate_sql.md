@@ -316,6 +316,8 @@ Subqueries need to be wrapped in parentheses. We can build more complex queries 
 ```sql
 SELECT * FROM items
 WHERE revenue > (Insert your query that calculates the avg inside these parentheses);
+SELECT * FROM items
+WHERE revenue > (select avg(revenue) from items);
 ```
 
 The result should look like so...
@@ -333,6 +335,10 @@ id |         name         | revenue | season_id
 
 
 1. Without looking at the previous solution, write a `WHERE` clause that returns the items that have a revenue less than the average revenue.
+```sql
+SELECT * FROM items
+WHERE revenue > (select avg(revenue) from items);
+```
 
 ### Additional Challenges
 
