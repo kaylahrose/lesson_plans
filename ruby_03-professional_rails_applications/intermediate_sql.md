@@ -198,7 +198,11 @@ Now let's combine multiple `INNER JOIN`s to pull data from three tables `items`,
 * Write a query that pulls all the category names for `arugula salad`.
   Hint: Use multiple `INNER JOIN`s and a `WHERE` clause.
 
-Can you get your return value to look like this?
+Can you get your return value to look like this? - `SELECT items.name, categories.name FROM categories
+INNER JOIN item_categories ON categories.id = item_categories.category_id
+INNER JOIN items ON item_categories.item_id = items.id
+INNER JOIN seasons ON items.season_id = seasons.id
+WHERE items.name = 'arugula salad';`
 
 ```sql
 name          |    name
@@ -210,7 +214,12 @@ arugula salad | vegetarian
 (4 rows)
 ```
 
-Can you change the column headings?
+Can you change the column headings? - `SELECT items.name as item_name, categories.name as category_name FROM categories
+                                                                         
+INNER JOIN item_categories ON categories.id = item_categories.category_id
+INNER JOIN items ON item_categories.item_id = items.id
+INNER JOIN seasons ON items.season_id = seasons.id
+WHERE items.name = 'arugula salad';`
 
 ```sql
 item_name     | category_name
